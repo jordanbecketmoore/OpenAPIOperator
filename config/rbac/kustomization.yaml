@@ -28,7 +28,4 @@ resources:
 - openapispec_admin_role.yaml
 - openapispec_editor_role.yaml
 - openapispec_viewer_role.yaml
-- openapi_admin_role.yaml
-- openapi_editor_role.yaml
-- openapi_viewer_role.yaml
 
