@@ -85,6 +85,7 @@ var _ = Describe("OpenApiSpec Webhook", func() {
 
 		It("Should deny creation if the spec.document does not pass validation", func() {
 			By("simulating an OpenApiSpec with an invalid spec.document")
+			obj.Spec.Document = "this is not a val:id document"
 			Expect(validator.ValidateCreate(ctx, obj)).Error().To(HaveOccurred())
 		})
 	})

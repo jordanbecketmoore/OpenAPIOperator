@@ -30,7 +30,8 @@ type OpenApiRouterSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// BackendRefs specifies an array of backends to which to point HTTPRoutes.
-	BackendRefs []gatewayv1.HTTPBackendRef `json:"backend,omitempty"`
+	// BackendRefs []gatewayv1.HTTPBackendRef `json:"backend,omitempty"`
+	// TODO Determine why CRD validation costs for this ^ field exceeds budget
 
 	// SpecRef specifies a reference to an OpenApiSpec object.
 	SpecRef OpenApiSpecRef `json:"specRef,omitempty"`

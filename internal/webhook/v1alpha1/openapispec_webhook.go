@@ -98,9 +98,7 @@ func (v *OpenApiSpecCustomValidator) ValidateCreate(ctx context.Context, obj run
 	}
 	openapispeclog.Info("Validation for OpenApiSpec upon creation", "name", openapispec.GetName())
 
-	// TODO(user): fill in your validation logic upon object creation.
-
-	return nil, nil
+	return nil, validateOpenApiSpec(openapispec)
 }
 
 // ValidateUpdate implements webhook.CustomValidator so a webhook will be registered for the type OpenApiSpec.
@@ -111,8 +109,7 @@ func (v *OpenApiSpecCustomValidator) ValidateUpdate(ctx context.Context, oldObj,
 	}
 	openapispeclog.Info("Validation for OpenApiSpec upon update", "name", openapispec.GetName())
 
-	// TODO(user): fill in your validation logic upon object update.
-	return nil, nil
+	return nil, validateOpenApiSpec(openapispec)
 }
 
 // ValidateDelete implements webhook.CustomValidator so a webhook will be registered for the type OpenApiSpec.
