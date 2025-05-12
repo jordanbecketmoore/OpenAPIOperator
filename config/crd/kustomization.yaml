@@ -4,6 +4,7 @@
 resources:
 - bases/openapi.openapis.org_openapis.yaml
 - bases/openapi.openapis.org_openapispecs.yaml
+- bases/openapi.openapis.org_openapirouters.yaml
 # +kubebuilder:scaffold:crdkustomizeresource
 
 patches:

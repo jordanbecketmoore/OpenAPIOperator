@@ -27,26 +27,26 @@ import (
 	openapiv1alpha1 "github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1"
 )
 
-// OpenApiReconciler reconciles a OpenApi object
-type OpenApiReconciler struct {
+// OpenApiRouterReconciler reconciles a OpenApiRouter object
+type OpenApiRouterReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapis,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapis/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapis/finalizers,verbs=update
+// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapirouters,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapirouters/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=openapi.openapis.org,resources=openapirouters/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the OpenApi object against the actual cluster state, and then
+// the OpenApiRouter object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.20.4/pkg/reconcile
-func (r *OpenApiReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *OpenApiRouterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = logf.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,9 +55,9 @@ func (r *OpenApiReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *OpenApiReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *OpenApiRouterReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&openapiv1alpha1.OpenApi{}).
-		Named("openapi").
+		For(&openapiv1alpha1.OpenApiRouter{}).
+		Named("openapirouter").
 		Complete(r)
 }

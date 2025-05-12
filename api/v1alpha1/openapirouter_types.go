@@ -23,17 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// OpenApiSpec defines the desired state of OpenApi.
-type OpenApiSpec struct {
+// OpenApiRouterSpec defines the desired state of OpenApiRouter.
+type OpenApiRouterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of OpenApi. Edit openapi_types.go to remove/update
+	// Foo is an example field of OpenApiRouter. Edit openapirouter_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 }
 
-// OpenApiStatus defines the observed state of OpenApi.
-type OpenApiStatus struct {
+// OpenApiRouterStatus defines the observed state of OpenApiRouter.
+type OpenApiRouterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +41,24 @@ type OpenApiStatus struct {
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
-// OpenApi is the Schema for the openapis API.
-type OpenApi struct {
+// OpenApiRouter is the Schema for the openapirouters API.
+type OpenApiRouter struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   OpenApiSpec   `json:"spec,omitempty"`
-	Status OpenApiStatus `json:"status,omitempty"`
+	Spec   OpenApiRouterSpec   `json:"spec,omitempty"`
+	Status OpenApiRouterStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// OpenApiList contains a list of OpenApi.
-type OpenApiList struct {
+// OpenApiRouterList contains a list of OpenApiRouter.
+type OpenApiRouterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []OpenApi `json:"items"`
+	Items           []OpenApiRouter `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&OpenApi{}, &OpenApiList{})
+	SchemeBuilder.Register(&OpenApiRouter{}, &OpenApiRouterList{})
 }

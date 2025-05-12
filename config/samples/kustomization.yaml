@@ -2,4 +2,5 @@
 resources:
 - openapi_v1alpha1_openapi.yaml
 - openapi_v1alpha1_openapispec.yaml
+- openapi_v1alpha1_openapirouter.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

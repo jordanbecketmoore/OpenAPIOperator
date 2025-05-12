@@ -22,6 +22,9 @@ resources:
 # default, aiding admins in cluster management. Those roles are
 # not used by the {{ .ProjectName }} itself. You can comment the following lines
 # if you do not want those helpers be installed with your Project.
+- openapirouter_admin_role.yaml
+- openapirouter_editor_role.yaml
+- openapirouter_viewer_role.yaml
 - openapispec_admin_role.yaml
 - openapispec_editor_role.yaml
 - openapispec_viewer_role.yaml

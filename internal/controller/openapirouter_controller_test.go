@@ -30,7 +30,7 @@ import (
 	openapiv1alpha1 "github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1"
 )
 
-var _ = Describe("OpenApi Controller", func() {
+var _ = Describe("OpenApiRouter Controller", func() {
 	Context("When reconciling a resource", func() {
 		const resourceName = "test-resource"
 
@@ -40,13 +40,13 @@ var _ = Describe("OpenApi Controller", func() {
 			Name:      resourceName,
 			Namespace: "default", // TODO(user):Modify as needed
 		}
-		openapi := &openapiv1alpha1.OpenApi{}
+		openapirouter := &openapiv1alpha1.OpenApiRouter{}
 
 		BeforeEach(func() {
-			By("creating the custom resource for the Kind OpenApi")
-			err := k8sClient.Get(ctx, typeNamespacedName, openapi)
+			By("creating the custom resource for the Kind OpenApiRouter")
+			err := k8sClient.Get(ctx, typeNamespacedName, openapirouter)
 			if err != nil && errors.IsNotFound(err) {
-				resource := &openapiv1alpha1.OpenApi{
+				resource := &openapiv1alpha1.OpenApiRouter{
 					ObjectMeta: metav1.ObjectMeta{
 						Name:      resourceName,
 						Namespace: "default",
@@ -59,16 +59,16 @@ var _ = Describe("OpenApi Controller", func() {
 
 		AfterEach(func() {
 			// TODO(user): Cleanup logic after each test, like removing the resource instance.
-			resource := &openapiv1alpha1.OpenApi{}
+			resource := &openapiv1alpha1.OpenApiRouter{}
 			err := k8sClient.Get(ctx, typeNamespacedName, resource)
 			Expect(err).NotTo(HaveOccurred())
 
-			By("Cleanup the specific resource instance OpenApi")
+			By("Cleanup the specific resource instance OpenApiRouter")
 			Expect(k8sClient.Delete(ctx, resource)).To(Succeed())
 		})
 		It("should successfully reconcile the resource", func() {
 			By("Reconciling the created resource")
-			controllerReconciler := &OpenApiReconciler{
+			controllerReconciler := &OpenApiRouterReconciler{
 				Client: k8sClient,
 				Scheme: k8sClient.Scheme(),
 			}

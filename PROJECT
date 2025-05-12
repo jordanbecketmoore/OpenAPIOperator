@@ -26,4 +26,13 @@ resources:
   kind: OpenApiSpec
   path: github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1
   version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: openapis.org
+  group: openapi
+  kind: OpenApiRouter
+  path: github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1
+  version: v1alpha1
 version: "3"
