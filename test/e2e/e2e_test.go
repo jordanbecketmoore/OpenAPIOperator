@@ -49,12 +49,9 @@ var _ = Describe("Manager", Ordered, func() {
 	// enforce the restricted security policy to the namespace, installing CRDs,
 	// and deploying the controller.
 	BeforeAll(func() {
-		By("installing cert-manager")
-		cmd := exec.Command("kubectl", "apply", "-f", "https://github.com/cert-manager/cert-manager/releases/download/v1.17.2/cert-manager.yaml")
-		_, err := utils.Run(cmd)
 		By("creating manager namespace")
-		cmd = exec.Command("kubectl", "create", "ns", namespace)
-		_, err = utils.Run(cmd)
+		cmd := exec.Command("kubectl", "create", "ns", namespace)
+		_, err := utils.Run(cmd)
 		Expect(err).NotTo(HaveOccurred(), "Failed to create namespace")
 
 		By("labeling the namespace to enforce the restricted security policy")
