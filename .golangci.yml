@@ -21,8 +21,6 @@ linters:
     - ginkgolinter
     - goconst
     - gocyclo
-    - gofmt
-    - goimports
     - gosimple
     - govet
     - ineffassign
