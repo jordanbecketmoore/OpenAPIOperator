@@ -4,7 +4,7 @@ A Kubernetes operator for automatic HTTP routing according to OpenAPI specificat
 # Custom Resources 
 ## OpenApiSpec
 The `OpenApiSpec` resource is a straightforward Kubernetes resource
-representation of an OpenAPI specification document. 
+representation of an OpenAPI specification document, managed via the [libopenapi](https://github.com/pb33f/libopenapi) Go library. 
 ## OpenApi
 The `OpenApi` resource will consist of references to a source `Gateway`, a
 target `Service`, and an `OpenApiSpec`. 
