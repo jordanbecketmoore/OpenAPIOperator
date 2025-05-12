@@ -82,6 +82,10 @@ var _ = Describe("OpenApiSpec Webhook", func() {
 		//     obj.SomeRequiredField = "updated_value"
 		//     Expect(validator.ValidateUpdate(ctx, oldObj, obj)).To(BeNil())
 		// })
-	})
 
+		It("Should deny creation if the spec.document does not pass validation", func() {
+			By("simulating an OpenApiSpec with an invalid spec.document")
+			Expect(validator.ValidateCreate(ctx, obj)).Error().To(HaveOccurred())
+		})
+	})
 })
