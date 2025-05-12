@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	gatewayv1 "sigs.k8s.io/gateway-api/apis/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -28,8 +29,7 @@ type OpenApiRouterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of OpenApiRouter. Edit openapirouter_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	BackendRefs []gatewayv1.HTTPBackendRef `json:"backend,omitempty"`
 }
 
 // OpenApiRouterStatus defines the observed state of OpenApiRouter.

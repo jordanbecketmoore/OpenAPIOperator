@@ -25,11 +25,8 @@ import (
 
 // OpenApiSpecSpec defines the desired state of OpenApiSpec.
 type OpenApiSpecSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of OpenApiSpec. Edit openapispec_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Document string `json:"document,omitempty"`
+	// TODO implement other ways of specifying the document, such as remotely or from a ConfigMap
 }
 
 // OpenApiSpecStatus defines the observed state of OpenApiSpec.
@@ -62,3 +59,5 @@ type OpenApiSpecList struct {
 func init() {
 	SchemeBuilder.Register(&OpenApiSpec{}, &OpenApiSpecList{})
 }
+
+// TODO implement validating webhook on OpenApiSpec to ensure that the spec.document is valid

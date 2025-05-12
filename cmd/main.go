@@ -202,20 +202,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.OpenApiReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
-	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "OpenApi")
-		os.Exit(1)
-	}
-	if err = (&controller.OpenApiSpecReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
-	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "OpenApiSpec")
-		os.Exit(1)
-	}
 	if err = (&controller.OpenApiRouterReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
