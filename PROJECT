@@ -7,4 +7,23 @@ layout:
 - go.kubebuilder.io/v4
 projectName: openapioperator
 repo: github.com/jordanbecketmoore/OpenAPIOperator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: openapis.org
+  group: openapi
+  kind: OpenApi
+  path: github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: openapis.org
+  group: openapi
+  kind: OpenApiSpec
+  path: github.com/jordanbecketmoore/OpenAPIOperator/api/v1alpha1
+  version: v1alpha1
 version: "3"

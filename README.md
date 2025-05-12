@@ -13,3 +13,5 @@ The `OpenApi` resource will use the `OpenApiSpec` to generate a set of
 `HTTPRoute`s that correspond to the routing rules defined by the `OpenApiSpec`.
 These `HTTPRoutes` will be attached to the source `Gateway`, whose traffic they
 will route to the target `Service`. 
+
+The `OpenApi` resource will also optionally host a copy of your `OpenApiSpec
