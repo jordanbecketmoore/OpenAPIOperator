@@ -83,7 +83,13 @@ var _ = Describe("OpenApiSpec Webhook", func() {
 		//     Expect(validator.ValidateUpdate(ctx, oldObj, obj)).To(BeNil())
 		// })
 
-		It("Should deny creation if the spec.document does not pass validation", func() {
+		It("Should deny creation of the spec.document does not pass validation", func() {
+			By("simulating an OpenApiSpec with an invalid spec.document")
+			obj.Spec.Document = "this is not a val:id document"
+			Expect(validator.ValidateCreate(ctx, obj)).Error().To(HaveOccurred())
+		})
+
+		It("Should allow creation of the spec.document does pass validation", func() {
 			By("simulating an OpenApiSpec with an invalid spec.document")
 			obj.Spec.Document = "this is not a val:id document"
 			Expect(validator.ValidateCreate(ctx, obj)).Error().To(HaveOccurred())
