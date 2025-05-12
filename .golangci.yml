@@ -13,6 +13,9 @@ linters:
       linters:
         - dupl
         - lll
+    - path: "test/utils/utils.go"
+      linters:
+        - staticcheck
   default: none
   enable:
     - dupl
