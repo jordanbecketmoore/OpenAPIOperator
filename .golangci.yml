@@ -3,13 +3,9 @@ run:
   timeout: 5m
   allow-parallel-runners: true
 
-issues:
-  # don't skip warning about doc comments
-  # don't exclude the default set of lint
-  exclude-use-default: false
-  # restore some of the defaults
-  # (fill in the rest as needed)
-  exclude-rules:
+linters:
+  exclusions: 
+    rules: 
     - path: "api/*"
       linters:
         - lll
@@ -17,8 +13,7 @@ issues:
       linters:
         - dupl
         - lll
-linters:
-  disable-all: true
+  default: none
   enable:
     - dupl
     - errcheck
@@ -42,7 +37,7 @@ linters:
     - unparam
     - unused
 
-linters-settings:
-  revive:
-    rules:
-      - name: comment-spacings
+  settings: 
+    revive:
+      rules:
+        - name: comment-spacings
