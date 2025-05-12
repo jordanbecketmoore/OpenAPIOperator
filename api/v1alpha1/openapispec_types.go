@@ -23,6 +23,16 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
+// OpenApiSpecRef defines a reference to an OpenApiSpec.
+type OpenApiSpecRef struct {
+	// Name is the name of the OpenApiSpec.
+	Name string `json:"name,omitempty"`
+
+	// Namespace is the namespace of the OpenApiSpec.
+	// +optional
+	Namespace string `json:"namespace,omitempty"`
+}
+
 // OpenApiSpecSpec defines the desired state of OpenApiSpec.
 type OpenApiSpecSpec struct {
 	Document string `json:"document,omitempty"`

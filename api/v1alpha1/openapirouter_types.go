@@ -29,7 +29,14 @@ type OpenApiRouterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
+	// BackendRefs specifies an array of backends to which to point HTTPRoutes.
 	BackendRefs []gatewayv1.HTTPBackendRef `json:"backend,omitempty"`
+
+	// SpecRef specifies a reference to an OpenApiSpec object.
+	SpecRef OpenApiSpecRef `json:"specRef,omitempty"`
+
+	// ParentRefs specifies an array of parentRefs to which HTTPRoutes will be attached.
+	ParentRefs []gatewayv1.ParentReference `json:"parentRefs,omitempty"`
 }
 
 // OpenApiRouterStatus defines the observed state of OpenApiRouter.
